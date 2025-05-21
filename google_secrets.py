@@ -6,7 +6,7 @@ SPREADSHEET_NAME = 'Тест SMM'                  # имя твоей табл�
 SECRETS_SHEET = 'secrets'                      # имя листа (у тебя снизу так называется)
 
 def get_secrets():
-    scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+    scopes = ['https://www.googleapis.com/auth/spreadsheets']
     creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=scopes)
     client = gspread.authorize(creds)
     sheet = client.open(SPREADSHEET_NAME).worksheet(SECRETS_SHEET)
