@@ -155,6 +155,10 @@ async def vk_callback(req: Request):
             group_id = body.get("group_id")
             user_id = body["object"]["message"].get("from_id")
             text = body["object"]["message"].get("text", "")
+            # 1. Проверяем — не от самого бота ли сообщение?
+    if user_id == group_id or body["object"]["message"].get("out") == 1:
+        print("Сообщение от бота, игнорируем.")
+        return PlainTextResponse("ok")
             print(f"New message from user {user_id} in group {group_id}: {text}")
 
             # ------ АНТИСПАМ ------
