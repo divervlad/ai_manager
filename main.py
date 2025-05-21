@@ -1,3 +1,4 @@
+import requests
 import os
 import time
 from collections import defaultdict
