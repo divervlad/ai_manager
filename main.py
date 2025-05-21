@@ -57,7 +57,7 @@ def notify_admin(user_id: int):
         "random_id": int(time.time())
     })
 
-@app.post("/")
+@app.post("/vk_callback")
 async def handle_event(request: Request):
     data = await request.json()
     if "type" not in data:
